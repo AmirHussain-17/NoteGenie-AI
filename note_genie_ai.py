@@ -17,28 +17,76 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 st.markdown("""
 <style>
 
+/* Background */
 html, body, [data-testid="stAppViewContainer"] {
   background-color: #F7FAF8 !important;
   background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png") !important;
   background-size: 300px !important;
   background-repeat: repeat !important;
-  filter: brightness(0.92); /* ✅ makes background softer so text is clear */
+  filter: brightness(0.92);
 }
 
-/* Fix heading and tagline visibility */
+/* Heading + Tagline visibility fix */
 h1, h2, h3, .stMarkdown h1, .stMarkdown h2 {
-  color: #083729 !important;  /* deep green-blue, matches your theme */
+  color: #083729 !important;
   font-weight: 800 !important;
 }
 
-/* Tagline text soften */
 p, span {
   color: #0F2B28 !important;
   opacity: 0.92;
 }
 
+/* Card Styling */
+.card {
+  background: rgba(255,255,255,0.75);
+  border: 2px solid #D5EDE3;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin: 0.9rem 0;
+  box-shadow: 0px 3px 10px rgba(120,190,165,0.25);
+  backdrop-filter: blur(4px);
+}
+
+/* Genie reply bubble */
+.genie_bubble {
+  background: #E5FFF4;
+  border: 2px solid #A8E4D0;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  margin-top: .6rem;
+  font-size: 1.05rem;
+  box-shadow: 0 3px 10px rgba(120,190,160,0.25);
+}
+
+/* User chat bubble */
+.user_bubble {
+  background: #FFFFFF;
+  border: 2px solid #CDEFE3;
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-top: .6rem;
+  font-size: 1.05rem;
+  box-shadow: 0 3px 8px rgba(140,200,180,0.25);
+}
+
+/* Buttons */
+.stButton>button, .stDownloadButton>button {
+  background: linear-gradient(90deg, #A9E9D5, #7FDCC0);
+  color: #083729 !important;
+  border-radius: 12px !important;
+  padding: 0.7rem 1.2rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0px 4px 10px rgba(110,190,160,0.5);
+  transition: 0.2s ease;
+}
+
+.stButton>button:hover, .stDownloadButton>button:hover { scale: 1.05; }
+
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
