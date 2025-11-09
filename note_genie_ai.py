@@ -20,59 +20,26 @@ st.markdown("""
 html, body, [data-testid="stAppViewContainer"] {
   background-color: #F7FAF8 !important;
   background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png") !important;
-  background-size: 350px !important;
+  background-size: 300px !important;
   background-repeat: repeat !important;
+  filter: brightness(0.92); /* ✅ makes background softer so text is clear */
 }
 
-/* Make layout full width and mobile responsive */
-.block-container {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-  max-width: 100% !important;
+/* Fix heading and tagline visibility */
+h1, h2, h3, .stMarkdown h1, .stMarkdown h2 {
+  color: #083729 !important;  /* deep green-blue, matches your theme */
+  font-weight: 800 !important;
 }
 
-/* Sidebar style */
-section[data-testid="stSidebar"] > div {
-  background-color: #E9FBF3 !important;
-  background-image: url("https://www.transparenttextures.com/patterns/paper.png") !important;
-  border-right: 1px solid #C7E9D8 !important;
+/* Tagline text soften */
+p, span {
+  color: #0F2B28 !important;
+  opacity: 0.92;
 }
 
-/* Card styling */
-.card {
-  background: rgba(255,255,255,0.85);
-  border: 1.8px solid #D5EDE3;
-  border-radius: 14px;
-  padding: 1rem;
-  margin: 1rem 0;
-  width: 100% !important;
-  box-shadow: 0px 3px 10px rgba(120,190,165,0.30);
-}
-
-/* Buttons */
-.stButton>button, .stDownloadButton>button {
-  background: linear-gradient(90deg, #A9E9D5, #7FDCC0);
-  color: #083729 !important;
-  border-radius: 10px !important;
-  padding: 0.6rem 1rem !important;
-  font-weight: 600 !important;
-  border: none !important;
-  box-shadow: 0px 3px 8px rgba(110,190,160,0.4);
-}
-
-/* Mobile Optimizations */
-@media (max-width: 600px) {
-  .card {
-    padding: 0.8rem !important;
-    font-size: 0.95rem !important;
-  }
-
-  h1, h2, h3 {
-    font-size: 1.2rem !important;
-  }
-}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
