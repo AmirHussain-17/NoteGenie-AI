@@ -188,6 +188,20 @@ with col2:
     st.write(TAGLINE_MD, unsafe_allow_html=True)
 st.markdown("---")
 
+# ✅ Welcome Notice for Users
+st.info(
+    """**Heads up 👋**
+
+This app is still *new* and works best with **simple text-based PDFs or written notes**.  
+Files with **too many animations, scanned pages, or decorative formatting** may not give perfect output.
+
+**Android Users:**  
+To switch between **Summary**, **Q/A Quiz**, **MCQ Quiz**, or **Chat with Genie** —  
+tap the **top-left menu (☰)** to choose your mode.  
+"""
+)
+
+
 
 # -------------------------- Sidebar --------------------------
 with st.sidebar:
