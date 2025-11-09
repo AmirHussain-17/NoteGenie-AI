@@ -190,16 +190,16 @@ st.markdown("---")
 
 # ✅ Welcome Notice for Users
 st.info(
-    """**Heads up 👋**
+    """
+**Notice**  
+This application works best with clean, text-based PDF documents or typed notes.  
+If the file contains heavy design elements, scanned pages, or stylized formatting, the output quality may vary.
 
-This app is still *new* and works best with **simple text-based PDFs or written notes**.  
-Files with **too many animations, scanned pages, or decorative formatting** may not give perfect output.
-
-**Android Users:**  
-To switch between **Summary**, **Q/A Quiz**, **MCQ Quiz**, or **Chat with Genie** —  
-tap the **top-left menu (☰)** to choose your mode.  
+**For Android Users:**  
+Use the menu button (☰) in the top-left corner to switch between features such as Summary, Q/A Quiz, MCQ Quiz, and Chat with Genie.
 """
 )
+
 
 
 
