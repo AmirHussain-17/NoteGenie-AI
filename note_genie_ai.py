@@ -8,103 +8,72 @@ from groq import Groq
 APP_NAME = "NoteGenie AI"
 TAGLINE_MD = "*Your study partner, that actually helps* <span style='font-style:normal;'>😉</span>"
 
-st.set_page_config(page_title=APP_NAME, page_icon="📄", layout="centered")
+st.set_page_config(page_title=APP_NAME, page_icon="📄", layout="wide")
+
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # -------------------------- UI Theme --------------------------
 st.markdown("""
 <style>
+
 html, body, [data-testid="stAppViewContainer"] {
   background-color: #F7FAF8 !important;
   background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png") !important;
   background-size: 350px !important;
   background-repeat: repeat !important;
 }
-.block-container { background-color: rgba(255,255,255,0) !important; }
 
+/* Make layout full width and mobile responsive */
+.block-container {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  max-width: 100% !important;
+}
+
+/* Sidebar style */
 section[data-testid="stSidebar"] > div {
   background-color: #E9FBF3 !important;
   background-image: url("https://www.transparenttextures.com/patterns/paper.png") !important;
   border-right: 1px solid #C7E9D8 !important;
 }
 
+/* Card styling */
 .card {
-  background: rgba(255,255,255,0.75);
-  border: 2px solid #D5EDE3;
-  border-radius: 18px;
-  padding: 1.25rem 1.4rem;
+  background: rgba(255,255,255,0.85);
+  border: 1.8px solid #D5EDE3;
+  border-radius: 14px;
+  padding: 1rem;
   margin: 1rem 0;
-  box-shadow: 0px 4px 12px rgba(120,190,165,0.35);
-  backdrop-filter: blur(6px);
+  width: 100% !important;
+  box-shadow: 0px 3px 10px rgba(120,190,165,0.30);
 }
 
+/* Buttons */
 .stButton>button, .stDownloadButton>button {
   background: linear-gradient(90deg, #A9E9D5, #7FDCC0);
   color: #083729 !important;
-  border-radius: 12px !important;
-  padding: 0.7rem 1.2rem !important;
-  font-weight: 700 !important;
+  border-radius: 10px !important;
+  padding: 0.6rem 1rem !important;
+  font-weight: 600 !important;
   border: none !important;
-  box-shadow: 0px 4px 10px rgba(110,190,160,0.5);
-  transition: 0.2s ease;
-}
-.stButton>button:hover, .stDownloadButton>button:hover { scale: 1.05; }
-
-.genie_bubble {
-  background: #E5FFF4;
-  border: 2px solid #A8E4D0;
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-  margin-top: .7rem;
-  font-size: 1.05rem;
-  box-shadow: 0 3px 10px rgba(120,190,160,0.25);
-  animation: fadein 0.6s ease;
+  box-shadow: 0px 3px 8px rgba(110,190,160,0.4);
 }
 
-@keyframes fadein {
-  from {opacity: 0; transform: translateY(6px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+  .card {
+    padding: 0.8rem !important;
+    font-size: 0.95rem !important;
+  }
 
-.user_bubble {
-  background: #FFFFFF;
-  border: 2px solid #CDEEE0;
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-  margin-top: .7rem;
-  font-size: 1.05rem;
-  box-shadow: 0 3px 10px rgba(150,200,180,0.25);
+  h1, h2, h3 {
+    font-size: 1.2rem !important;
+  }
 }
-            /* Chat Input Box */
-[data-testid="stTextInput"] > div > div > input {
-  background: #FFFFFF !important;
-  border: 2px solid #A8E4D0 !important;
-  border-radius: 12px !important;
-  padding: 10px !important;
-  font-size: 1.05rem !important;
-  color: #083729 !important;
-  box-shadow: 0px 3px 8px rgba(140, 210, 180, 0.35) !important;
-}
-
-[data-testid="stTextInput"] > div > div > input:focus {
-  border: 2px solid #6CD6B7 !important;
-  outline: none !important;
-}
-
-            /* Make chat input background slightly tinted */
-[data-testid="stTextInput"] > div > div > input {
-  background: #FFFFFF !important;
-  border: 2.5px solid #8FDCC9 !important;
-  border-radius: 14px !important;
-  padding: 12px !important;
-  font-size: 1.08rem !important;
-  color: #083729 !important;
-}
-
-
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # -------------------------- Helpers --------------------------
